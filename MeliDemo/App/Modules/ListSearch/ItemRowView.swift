@@ -17,32 +17,33 @@ struct ItemRowView: View {
             HStack(alignment: .top) {
                 ZStack {
                     Color.gray.opacity(0.1)
-                        .frame(width: 170, height: 170)
+                        .frame(width: 150, height: 170)
                         .cornerRadius(8)
                     
                     KFImage(item.thumbnailURL)
                         .placeholder {
                             ProgressView()
-                                .frame(width: 150, height: 150)
+                                .frame(width: 150, height: 100)
                         }
                         .resizable()
-                        .frame(width: 150, height: 150)
                         .scaledToFit()
+                        .frame(width: 150, height: 160)
+                        .clipped()
                 }
                 .overlay(alignment: .topTrailing) {
                     heartOverlay
-                        .padding(10)
+                        .padding(4)
                 }
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 8) {
                     if let title = item.title {
                         Text(title)
-                            .font(.headline)
+                            .font(.subheadline)
                     }
                     
                     if let priceTitle = item.priceTitle {
                         Text(priceTitle)
-                            .font(.subheadline)
+                            .font(.headline)
                     }
                 }
                 

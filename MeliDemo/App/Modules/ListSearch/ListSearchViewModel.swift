@@ -20,7 +20,7 @@ final class ListSearchViewModel: Loadable {
     // Paging
     private var totalItemsAvailable = 0
     private var currentOffset: Int = 0
-    private let limit: Int = 20
+    private let limit: Int = 50
 
     init() {
         loadRecentSearches()
@@ -49,7 +49,6 @@ final class ListSearchViewModel: Loadable {
         addRecentSearch(searchText)
         currentOffset = 0
         items.removeAll()
-        print("test loadData se llama")
 
         state = .loading
         do {

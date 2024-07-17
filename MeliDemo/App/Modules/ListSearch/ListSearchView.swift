@@ -37,6 +37,8 @@ struct ListSearchView: View {
     }
 }
 
+
+// MARK: Views
 extension ListSearchView {
     private var recentsView: some View {
         List {

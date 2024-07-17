@@ -12,7 +12,7 @@ struct ItemModel: Codable, Identifiable {
     let title: String?
     let condition: String?
     let categoryID: String?
-    let thumbnail: String?
+    let thumbnailID: String?
     let currencyID: String?
     let price: Double?
     let originalPrice: Double?
@@ -27,7 +27,7 @@ struct ItemModel: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case id, title, condition
         case categoryID = "category_id"
-        case thumbnail
+        case thumbnailID = "thumbnail_id"
         case currencyID = "currency_id"
         case price
         case originalPrice = "original_price"
@@ -45,7 +45,7 @@ extension ItemModel {
         title: "Test Item",
         condition: "",
         categoryID: "",
-        thumbnail: "http://http2.mlstatic.com/D_839295-MLA74246453969_012024-I.jpg",
+        thumbnailID: "839295-MLA74246453969_012024",
         currencyID: "",
         price: 2.000,
         originalPrice: 1.000,
@@ -58,8 +58,8 @@ extension ItemModel {
     )
     
     var thumbnailURL: URL? {
-        guard let thumbnail else { return nil }
-        return URL(string: thumbnail)
+        guard let thumbnailID else { return nil }
+        return URL(string: "https://http2.mlstatic.com/D_\(thumbnailID)-O.jpg")
     }
     
     var priceTitle: String? {
