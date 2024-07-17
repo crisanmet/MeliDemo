@@ -10,6 +10,7 @@ import Factory
 
 final class ListSearchViewModel: Loadable {
     @Injected(\.apiManager) private var apiManager
+    @Injected(\.navigationManager) private var navigationManager
 
     @Published var state: LoadingState = .loaded
     @Published var searchText: String = ""
@@ -46,11 +47,12 @@ final class ListSearchViewModel: Loadable {
     
     func loadData() async {
         guard !searchText.isEmpty else { return }
+        state = .loading
+
         addRecentSearch(searchText)
         currentOffset = 0
         items.removeAll()
 
-        state = .loading
         do {
             try await loadItems()
             state = .loaded
@@ -84,5 +86,10 @@ final class ListSearchViewModel: Loadable {
     func deleteRecentSearch(at offsets: IndexSet) {
         recentSearches.remove(atOffsets: offsets)
         saveRecentSearches()
+    }
+    
+    func pushDetailView(item: ItemModel) {
+        let vc = UIHostingController(rootView: ItemDetailView(viewModel: .init(item: item)))
+        navigationManager.push(vc: vc)
     }
 }

@@ -11,7 +11,8 @@ import Kingfisher
 struct ItemRowView: View {
     @State private var isFavoriteSelected = false
     let item: ItemModel
-    
+    let onItemTapped: () -> Void
+
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -29,11 +30,12 @@ struct ItemRowView: View {
                         .scaledToFit()
                         .frame(width: 150, height: 160)
                         .clipped()
+                        .overlay(alignment: .topTrailing) {
+                            heartOverlay
+                                .padding(4)
+                        }
                 }
-                .overlay(alignment: .topTrailing) {
-                    heartOverlay
-                        .padding(4)
-                }
+               
                 
                 VStack(alignment: .leading, spacing: 8) {
                     if let title = item.title {
@@ -52,6 +54,9 @@ struct ItemRowView: View {
             .padding()
             .cornerRadius(8)
             Divider()
+        }
+        .onTapGesture {
+            onItemTapped()
         }
     }
     
@@ -74,5 +79,5 @@ struct ItemRowView: View {
 }
 
 #Preview {
-    ItemRowView(item: ItemModel.mock)
+    ItemRowView(item: ItemModel.mock, onItemTapped: { })
 }

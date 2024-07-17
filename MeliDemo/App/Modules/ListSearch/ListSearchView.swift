@@ -32,8 +32,7 @@ struct ListSearchView: View {
                 })
             }
         }
-        .toolbarBackground(.main, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -46,6 +45,7 @@ extension ListSearchView {
                 Button(action: {
                     Task {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        viewModel.state = .loading
                         viewModel.isEditing = false
                         viewModel.searchText = search
                         await viewModel.loadData()
@@ -70,12 +70,14 @@ extension ListSearchView {
     private var itemsView: some View {
         LazyVStack(alignment: .leading) {
             ForEach(viewModel.items) { item in
-                ItemRowView(item: item)
-                    .onAppear {
-                        if item == viewModel.items.last {
-                            viewModel.loadMoreItems()
-                        }
+                ItemRowView(item: item, onItemTapped: {
+                    viewModel.pushDetailView(item: item)
+                })
+                .onAppear {
+                    if item == viewModel.items.last {
+                        viewModel.loadMoreItems()
                     }
+                }
             }
         }
     }

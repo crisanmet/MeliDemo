@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Factory
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    @Injected(\.navigationManager) private var navigationManager
 
     var window: UIWindow?
 
@@ -20,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowsScene)
         let homeViewController = TabBarViewController()
         let navigationViewController = UINavigationController(rootViewController: homeViewController)
+        navigationViewController.navigationItem.hidesBackButton = true
+        navigationManager.navigationController = navigationViewController
         window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()
     }

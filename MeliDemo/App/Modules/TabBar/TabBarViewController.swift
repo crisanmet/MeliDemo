@@ -12,8 +12,11 @@ class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
+        setupAppearance()
+        setupTabs()
+    }
+    
+    private func setupTabs() {
         let listSearchVC = UINavigationController(rootViewController: UIHostingController(rootView: ListSearchView()))
         let favoriteVC = UINavigationController(rootViewController: UIHostingController(rootView: ListSearchView()))
         
@@ -23,8 +26,20 @@ class TabBarViewController: UITabBarController {
         listSearchVC.title = "Inicio"
         favoriteVC.title = "Favoritos"
         
-        tabBar.tintColor = .blue
         setViewControllers([listSearchVC, favoriteVC], animated: true)
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func setupAppearance() {
+        view.backgroundColor = .white
+        tabBar.tintColor = .blue
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = .main
+        navBarAppearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        UIPageControl.appearance().currentPageIndicatorTintColor = .blue
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
     }
 }
