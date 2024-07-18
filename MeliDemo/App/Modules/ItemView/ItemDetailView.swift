@@ -14,68 +14,71 @@ struct ItemDetailView: View {
     @State private var currentTabIndex: Int = 0
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                AsyncContentView(source: viewModel) {
-                    if let condition = viewModel.item.condition?.title {
-                        customText(condition, font: .caption)
+        GeometryReader { geo in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    AsyncContentView(source: viewModel) {
+                        if let condition = viewModel.item.condition?.title {
+                            customText(condition, font: .caption)
+                        }
+                        
+                        if let title = viewModel.item.title {
+                            customText(title, font: .subheadline)
+                        }
+                        
+                        if let pictures = viewModel.item.pictures {
+                            tabViewPicture(pictures: pictures)
+                        }
+                        
+                        if let priceTitle = viewModel.item.priceTitle {
+                            customText(priceTitle, font: .headline)
+                        }
+                        
+                        buttonsView
+                        
+                        if let sellerNick = viewModel.seller?.nickname {
+                            sellerNickView(nick: sellerNick)
+                        }
+                        
+                        if let attributes = viewModel.item.attributes {
+                            customText("Caracteristicas del Producto", font: .title2)
+                            attributesView(attributes: attributes)
+                        }
+                        
+                        if let itemDescription = viewModel.itemDescription?.plainText, !itemDescription.isEmpty {
+                            customText("Description", font: .title2)
+                            customText(itemDescription, font: .callout)
+                        }
+                        
+                        if let sellerRelatedItems = viewModel.sellerRelatedItems {
+                            customText("Otros productos del vendedor", font: .title2)
+                                .padding(.top, 10)
+                            self.sellerRelatedItems(items: sellerRelatedItems)
+                        }
                     }
-                    
-                    if let title = viewModel.item.title {
-                        customText(title, font: .subheadline)
-                    }
-                    
-                    if let pictures = viewModel.item.pictures {
-                        tabViewPicture(pictures: pictures)
-                    }
-                    
-                    if let priceTitle = viewModel.item.priceTitle {
-                        customText(priceTitle, font: .headline)
-                    }
-                    
-                    buttonsView
-                    
-                    if let sellerNick = viewModel.seller?.nickname {
-                        sellerNickView(nick: sellerNick)
-                    }
-                    
-                    if let attributes = viewModel.item.attributes {
-                        customText("Caracteristicas del Producto", font: .title2)
-                        attributesView(attributes: attributes)
-                    }
-                    
-                    if let itemDescription = viewModel.itemDescription?.plainText, !itemDescription.isEmpty {
-                        customText("Description", font: .title2)
-                        customText(itemDescription, font: .callout)
-                    }
-                    
-                    if let sellerRelatedItems = viewModel.sellerRelatedItems {
-                        customText("Otros productos del vendedor", font: .title2)
-                            .padding(.top, 10)
-                        self.sellerRelatedItems(items: sellerRelatedItems)
+                    Spacer()
+                }
+                .frame(minHeight: geo.size.height)
+            }
+            .scrollIndicators(.hidden)
+            .padding(.bottom, 20)
+            .onAppear {
+                Task {
+                    await viewModel.loadData()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(.black)
                     }
                 }
             }
-            
-        }
-        .scrollIndicators(.hidden)
-        .padding(.bottom, 20)
-        .onAppear {
-            Task {
-                await viewModel.loadData()
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "arrow.left")
-                        .foregroundColor(.black)
-                }
-            }
-        }
         .navigationBarBackButtonHidden()
+        }
     }
 }
 

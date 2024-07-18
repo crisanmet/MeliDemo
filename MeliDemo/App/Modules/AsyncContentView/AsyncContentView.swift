@@ -34,7 +34,7 @@ public struct AsyncContentView<Source: Loadable, Content: View>: View {
                 switch source.state {
                 case .loading:
                     LoadingIndicator(animation: .circleRunner, color: .blue, size: .medium)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .failed(let title):
                     ErrorView(errorTitle: title, onReloadAction: {
                         Task {
