@@ -13,7 +13,7 @@ This project is an iOS application that uses the Mercado Libre API to search for
 ## Dependencies
 
 - [Kingfisher](https://github.com/onevcat/Kingfisher): Used for loading and caching images from the web.
-- [Factory]((https://github.com/hmlongco/Factory): Used factory container to manage dependencies and facilitate dependency injection in MVVM components.
+- [Factory](https://github.com/hmlongco/Factory): Used factory container to manage dependencies and facilitate dependency injection in MVVM components.
 
 ## Showcase
 https://www.youtube.com/shorts/Gtew1jZajPY
