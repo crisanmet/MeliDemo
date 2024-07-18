@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		400CD8B92C47600000ABD914 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400CD8B82C47600000ABD914 /* ItemDetailView.swift */; };
+		403540392C48663D0098D2FC /* mockSearchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 403540382C48663D0098D2FC /* mockSearchResponse.json */; };
+		4035403B2C4867020098D2FC /* Helpers+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035403A2C4867020098D2FC /* Helpers+Extras.swift */; };
+		405CC49A2C485D3300306E09 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405CC4992C485D3300306E09 /* MockService.swift */; };
+		405CC49E2C485F4B00306E09 /* ListSearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405CC49D2C485F4B00306E09 /* ListSearchViewModelTest.swift */; };
 		405D049C2C41A8E80093A082 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D049B2C41A8E80093A082 /* TabBarViewController.swift */; };
 		405D049F2C41B08A0093A082 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D049E2C41B08A0093A082 /* SearchBarView.swift */; };
 		405D04EE2C4211490093A082 /* ListSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D04ED2C4211490093A082 /* ListSearchView.swift */; };
@@ -17,7 +21,6 @@
 		405D3C082C41A5B1001B7A6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D3C072C41A5B1001B7A6A /* SceneDelegate.swift */; };
 		405D3C0F2C41A5B1001B7A6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405D3C0E2C41A5B1001B7A6A /* Assets.xcassets */; };
 		405D3C122C41A5B1001B7A6A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 405D3C112C41A5B1001B7A6A /* Base */; };
-		405D3C1D2C41A5B1001B7A6A /* MeliDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D3C1C2C41A5B1001B7A6A /* MeliDemoTests.swift */; };
 		405D3C272C41A5B1001B7A6A /* MeliDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D3C262C41A5B1001B7A6A /* MeliDemoUITests.swift */; };
 		405D3C292C41A5B1001B7A6A /* MeliDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405D3C282C41A5B1001B7A6A /* MeliDemoUITestsLaunchTests.swift */; };
 		406EDFB42C47A127006BCDCD /* SellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406EDFB32C47A127006BCDCD /* SellerModel.swift */; };
@@ -59,6 +62,10 @@
 
 /* Begin PBXFileReference section */
 		400CD8B82C47600000ABD914 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		403540382C48663D0098D2FC /* mockSearchResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockSearchResponse.json; sourceTree = "<group>"; };
+		4035403A2C4867020098D2FC /* Helpers+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Extras.swift"; sourceTree = "<group>"; };
+		405CC4992C485D3300306E09 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		405CC49D2C485F4B00306E09 /* ListSearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSearchViewModelTest.swift; sourceTree = "<group>"; };
 		405D049B2C41A8E80093A082 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		405D049E2C41B08A0093A082 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		405D04ED2C4211490093A082 /* ListSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSearchView.swift; sourceTree = "<group>"; };
@@ -70,7 +77,6 @@
 		405D3C112C41A5B1001B7A6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		405D3C132C41A5B1001B7A6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405D3C182C41A5B1001B7A6A /* MeliDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeliDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		405D3C1C2C41A5B1001B7A6A /* MeliDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeliDemoTests.swift; sourceTree = "<group>"; };
 		405D3C222C41A5B1001B7A6A /* MeliDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeliDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		405D3C262C41A5B1001B7A6A /* MeliDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeliDemoUITests.swift; sourceTree = "<group>"; };
 		405D3C282C41A5B1001B7A6A /* MeliDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeliDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -126,6 +132,24 @@
 				40D81D712C47699900CC949B /* ItemDetailViewModel.swift */,
 			);
 			path = ItemView;
+			sourceTree = "<group>";
+		};
+		405CC4972C485D1700306E09 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				405CC4982C485D2400306E09 /* Mocks */,
+				4035403A2C4867020098D2FC /* Helpers+Extras.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		405CC4982C485D2400306E09 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				403540382C48663D0098D2FC /* mockSearchResponse.json */,
+				405CC4992C485D3300306E09 /* MockService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		405D04972C41A8880093A082 /* App */ = {
@@ -231,7 +255,8 @@
 		405D3C1B2C41A5B1001B7A6A /* MeliDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				405D3C1C2C41A5B1001B7A6A /* MeliDemoTests.swift */,
+				405CC4972C485D1700306E09 /* Helpers */,
+				405CC49D2C485F4B00306E09 /* ListSearchViewModelTest.swift */,
 			);
 			path = MeliDemoTests;
 			sourceTree = "<group>";
@@ -431,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403540392C48663D0098D2FC /* mockSearchResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +502,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				405D3C1D2C41A5B1001B7A6A /* MeliDemoTests.swift in Sources */,
+				405CC49E2C485F4B00306E09 /* ListSearchViewModelTest.swift in Sources */,
+				405CC49A2C485D3300306E09 /* MockService.swift in Sources */,
+				4035403B2C4867020098D2FC /* Helpers+Extras.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
