@@ -32,7 +32,7 @@ enum APIEndpoint {
     case search(query: String, offset: Int, limit: Int)
     case itemDetail(itemId: String)
     case itemDescription(itemId: String)
-    case sellerSearch(sellerId: String)
+    case sellerSearch(sellerId: Int)
     
     var path: String {
         switch self {

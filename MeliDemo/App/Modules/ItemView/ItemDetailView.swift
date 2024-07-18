@@ -35,17 +35,31 @@ struct ItemDetailView: View {
                     
                     buttonsView
                     
-                    if let sellerNick = viewModel.nickName {
+                    if let sellerNick = viewModel.seller?.nickname {
                         sellerNickView(nick: sellerNick)
                     }
                     
                     if let attributes = viewModel.item.attributes {
+                        customText("Caracteristicas del Producto", font: .title2)
                         attributesView(attributes: attributes)
+                    }
+                    
+                    if let itemDescription = viewModel.itemDescription?.plainText, !itemDescription.isEmpty {
+                        customText("Description", font: .title2)
+                        customText(itemDescription, font: .callout)
+                    }
+                    
+                    if let sellerRelatedItems = viewModel.sellerRelatedItems {
+                        customText("Otros productos del vendedor", font: .title2)
+                            .padding(.top, 10)
+                        self.sellerRelatedItems(items: sellerRelatedItems)
                     }
                 }
             }
             
         }
+        .scrollIndicators(.hidden)
+        .padding(.bottom, 20)
         .onAppear {
             Task {
                 await viewModel.loadData()
@@ -70,7 +84,7 @@ private func customText(_ text: String, font: Font) -> some View {
     Text(text)
         .font(font)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.horizontal, 12)
+        .padding(.horizontal, 16)
         .padding(.top, 6)
 }
 
@@ -145,8 +159,8 @@ extension ItemDetailView {
                 .foregroundColor(.blue)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.top, 6)
-        .padding(.horizontal, 12)
+        .padding(.top, 10)
+        .padding(.horizontal, 16)
     }
     
     private func attributesView(attributes: [AttributeModel]) -> some View {
@@ -176,6 +190,21 @@ extension ItemDetailView {
                 .stroke(.gray.opacity(0.6), lineWidth: 0.5)
         )
         .padding()
+    }
+    
+    private func sellerRelatedItems(items: [ItemModel]) -> some View {
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 0) {
+                ForEach(items) { item in
+                    ItemRowView(item: item, onItemTapped: {
+                        NavigationManager.shared.showDetailItemView(item: item)
+                    }, isHorizontal: true)
+                    .padding()
+                }
+            }
+        }
+        .scrollIndicators(.hidden)
+        .padding(.top, 10)
     }
 }
 

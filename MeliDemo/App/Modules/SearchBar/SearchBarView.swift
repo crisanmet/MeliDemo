@@ -51,7 +51,6 @@ struct SearchBarView: View {
             
             if isEditing {
                 Button("Cancelar") {
-                    text = ""
                     isEditing = false
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }

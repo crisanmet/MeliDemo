@@ -14,7 +14,6 @@ public enum LoadingState: Equatable {
     case loaded
 }
 
-@MainActor
 public protocol Loadable: ObservableObject {
     var state: LoadingState { get }
     func loadData() async

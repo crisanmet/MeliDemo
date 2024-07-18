@@ -6,25 +6,16 @@
 //
 
 import UIKit
-import Factory
+import SwiftUI
 
-extension Container {
-    var navigationManager: Factory<NavigationManager> {
-        self { DefaultNavigationManager() }.scope(.singleton)
-    }
-}
-
-protocol NavigationManager {
-    var navigationController: UINavigationController? { get set }
+final class NavigationManager {
     
-    func push(vc: UIViewController)
-}
-
-final class DefaultNavigationManager: NavigationManager {
+    static let shared = NavigationManager()
     
     var navigationController: UINavigationController?
     
-    func push(vc: UIViewController) {
+    func showDetailItemView(item: ItemModel) {
+        let vc = UIHostingController(rootView: ItemDetailView(viewModel: .init(item: item)))
         vc.navigationItem.hidesBackButton = true
         navigationController?.pushViewController(vc, animated: true)
     }

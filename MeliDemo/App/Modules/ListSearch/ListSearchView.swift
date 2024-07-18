@@ -71,8 +71,8 @@ extension ListSearchView {
         LazyVStack(alignment: .leading) {
             ForEach(viewModel.items) { item in
                 ItemRowView(item: item, onItemTapped: {
-                    viewModel.pushDetailView(item: item)
-                })
+                    NavigationManager.shared.showDetailItemView(item: item)
+                }, isHorizontal: false)
                 .onAppear {
                     if item == viewModel.items.last {
                         viewModel.loadMoreItems()

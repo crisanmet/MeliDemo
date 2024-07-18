@@ -79,7 +79,7 @@ extension ItemModel {
     
     static var mock: ItemModel = .init(
         id: "1",
-        title: "Test Item",
+        title: "Motorola Moto",
         condition: ItemCondition.new,
         categoryID: "",
         thumbnailID: "839295-MLA74246453969_012024",
@@ -96,3 +96,10 @@ extension ItemModel {
     )
 }
 
+struct ItemModelDescription: Codable {
+    let plainText: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case plainText = "plain_text"
+    }
+}
