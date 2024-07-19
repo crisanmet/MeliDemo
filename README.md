@@ -16,4 +16,4 @@ This project is an iOS application that uses the Mercado Libre API to search for
 - [Factory](https://github.com/hmlongco/Factory): Used factory container to manage dependencies and facilitate dependency injection in MVVM components.
 
 ## Showcase
-https://www.youtube.com/shorts/Gtew1jZajPY
+[https://www.youtube.com/shorts/Gtew1jZajPY](https://youtu.be/iY-uX7ojR2Y)
