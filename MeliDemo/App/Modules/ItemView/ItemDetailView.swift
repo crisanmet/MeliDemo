@@ -57,6 +57,7 @@ struct ItemDetailView: View {
                         }
                         
                         if let sellerRelatedItems = viewModel.sellerRelatedItems {
+                            Divider()
                             customText("Otros productos del vendedor", font: .title2)
                                 .padding(.top, 10)
                             self.sellerRelatedItems(items: sellerRelatedItems)
