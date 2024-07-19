@@ -22,11 +22,11 @@ struct ItemDetailView: View {
                             customText(condition, font: .caption)
                         }
                         
-                        if let title = viewModel.item.title {
+                        if let title = viewModel.item.title, !title.isEmpty {
                             customText(title, font: .subheadline)
                         }
                         
-                        if let pictures = viewModel.item.pictures {
+                        if let pictures = viewModel.item.pictures, !pictures.isEmpty {
                             tabViewPicture(pictures: pictures)
                         }
                         
@@ -36,11 +36,11 @@ struct ItemDetailView: View {
                         
                         buttonsView
                         
-                        if let sellerNick = viewModel.seller?.nickname {
+                        if let sellerNick = viewModel.seller?.nickname, !sellerNick.isEmpty {
                             sellerNickView(nick: sellerNick)
                         }
                         
-                        if let attributes = viewModel.item.attributes {
+                        if let attributes = viewModel.item.attributes, !attributes.isEmpty {
                             Divider()
                             customText("Caracteristicas del Producto", font: .title2)
                             AttributeListView(attributes: Array(attributes.prefix(6)))
@@ -56,7 +56,7 @@ struct ItemDetailView: View {
                             customText(itemDescription, font: .callout)
                         }
                         
-                        if let sellerRelatedItems = viewModel.sellerRelatedItems {
+                        if let sellerRelatedItems = viewModel.sellerRelatedItems, !sellerRelatedItems.isEmpty {
                             Divider()
                             customText("Otros productos del vendedor", font: .title2)
                                 .padding(.top, 10)

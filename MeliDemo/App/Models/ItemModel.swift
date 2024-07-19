@@ -70,7 +70,8 @@ extension ItemModel {
     }
     
     var priceTitle: String? {
-        return price?.formattedCurrency()
+        guard let price, price > 0 else { return nil }
+        return price.formattedCurrency()
     }
 }
 
