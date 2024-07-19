@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		400CD8B92C47600000ABD914 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400CD8B82C47600000ABD914 /* ItemDetailView.swift */; };
+		401B17ED2C49E989001D104F /* AttributeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B17EC2C49E989001D104F /* AttributeListView.swift */; };
+		401B17EF2C49EC95001D104F /* AttributesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B17EE2C49EC95001D104F /* AttributesDetailView.swift */; };
 		403540392C48663D0098D2FC /* mockSearchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 403540382C48663D0098D2FC /* mockSearchResponse.json */; };
 		4035403B2C4867020098D2FC /* Helpers+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035403A2C4867020098D2FC /* Helpers+Extras.swift */; };
 		405CC49A2C485D3300306E09 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405CC4992C485D3300306E09 /* MockService.swift */; };
@@ -62,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		400CD8B82C47600000ABD914 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		401B17EC2C49E989001D104F /* AttributeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeListView.swift; sourceTree = "<group>"; };
+		401B17EE2C49EC95001D104F /* AttributesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesDetailView.swift; sourceTree = "<group>"; };
 		403540382C48663D0098D2FC /* mockSearchResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockSearchResponse.json; sourceTree = "<group>"; };
 		4035403A2C4867020098D2FC /* Helpers+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Extras.swift"; sourceTree = "<group>"; };
 		405CC4992C485D3300306E09 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
@@ -134,6 +138,15 @@
 			path = ItemView;
 			sourceTree = "<group>";
 		};
+		401B17EB2C49E96E001D104F /* AttributeView */ = {
+			isa = PBXGroup;
+			children = (
+				401B17EC2C49E989001D104F /* AttributeListView.swift */,
+				401B17EE2C49EC95001D104F /* AttributesDetailView.swift */,
+			);
+			path = AttributeView;
+			sourceTree = "<group>";
+		};
 		405CC4972C485D1700306E09 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +183,7 @@
 			children = (
 				40D030EA2C4629460063E2D8 /* ErrorView */,
 				405D04EC2C42112F0093A082 /* ListSearch */,
+				401B17EB2C49E96E001D104F /* AttributeView */,
 				400CD8B72C475FE000ABD914 /* ItemView */,
 				40D030E72C46291A0063E2D8 /* AsyncContentView */,
 				405D049D2C41B0790093A082 /* SearchBar */,
@@ -489,9 +503,11 @@
 				40D030E92C4629300063E2D8 /* AsyncContentView.swift in Sources */,
 				40D030EC2C4629640063E2D8 /* ErrorView.swift in Sources */,
 				40D81D5E2C47661600CC949B /* NavigationManager.swift in Sources */,
+				401B17ED2C49E989001D104F /* AttributeListView.swift in Sources */,
 				405D049F2C41B08A0093A082 /* SearchBarView.swift in Sources */,
 				406EDFB42C47A127006BCDCD /* SellerModel.swift in Sources */,
 				400CD8B92C47600000ABD914 /* ItemDetailView.swift in Sources */,
+				401B17EF2C49EC95001D104F /* AttributesDetailView.swift in Sources */,
 				407F5A112C423F530047B95B /* APIManager.swift in Sources */,
 				40D030DA2C45A69A0063E2D8 /* Constants.swift in Sources */,
 				40D030E12C4609910063E2D8 /* Double+Extras.swift in Sources */,

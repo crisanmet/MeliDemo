@@ -41,11 +41,17 @@ struct ItemDetailView: View {
                         }
                         
                         if let attributes = viewModel.item.attributes {
+                            Divider()
                             customText("Caracteristicas del Producto", font: .title2)
-                            attributesView(attributes: attributes)
+                            AttributeListView(attributes: Array(attributes.prefix(6)))
+                            
+                            if attributes.count > 6 {
+                                showMoreAttributesButton
+                            }
                         }
                         
                         if let itemDescription = viewModel.itemDescription?.plainText, !itemDescription.isEmpty {
+                            Divider()
                             customText("Description", font: .title2)
                             customText(itemDescription, font: .callout)
                         }
@@ -162,37 +168,30 @@ extension ItemDetailView {
                 .foregroundColor(.blue)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.top, 10)
+        .padding([.top, .bottom], 10)
         .padding(.horizontal, 16)
     }
     
-    private func attributesView(attributes: [AttributeModel]) -> some View {
-        // TODO map per id value. e.g. "DISPLAY_PIXELS_PER_INCH", "DISPLAY_ASPECT_RATIO"
-        VStack(alignment: .leading, spacing: 8) {
-            ForEach(Array(attributes.enumerated()), id: \.element.id) { index, attribute in
-                if let attributeTitle = attribute.name,
-                   let attributeValue = attribute.valueName {
-                    HStack {
-                        Text(attributeTitle)
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Text(attributeValue)
-                            .font(.caption)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .padding(10)
-                    .background(index % 2 == 0 ? .white : .gray.opacity(0.1))
-                }
+    private var showMoreAttributesButton: some View {
+        VStack {
+            HStack {
+                Text("Ver todas las características")
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.blue)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.blue)
+            }
+            .contentShape(Rectangle())
+            .padding(16)
+            .background(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.gray.opacity(0.6), lineWidth: 0.5))
+            .onTapGesture {
+                NavigationManager.shared.showAttributesView(attributes: viewModel.item.attributes ?? [])
             }
         }
-        .cornerRadius(8)
-        .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(.gray.opacity(0.6), lineWidth: 0.5)
-        )
-        .padding()
+        .padding(.horizontal)
     }
     
     private func sellerRelatedItems(items: [ItemModel]) -> some View {

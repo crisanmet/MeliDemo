@@ -19,4 +19,10 @@ final class NavigationManager {
         vc.navigationItem.hidesBackButton = true
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func showAttributesView(attributes: [AttributeModel]) {
+        let vc = UIHostingController(rootView: AttributesDetailView(attributes: attributes))
+        vc.navigationItem.hidesBackButton = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
