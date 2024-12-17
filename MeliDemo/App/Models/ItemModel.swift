@@ -36,7 +36,6 @@ struct ItemModel: Codable, Identifiable {
     let currencyID: String?
     let price: Double?
     let originalPrice: Double?
-    let salePrice: Double?
     let availableQuantity: Int?
     let pictures: [PictureModel]?
     let seller: SellerModel?
@@ -50,7 +49,6 @@ struct ItemModel: Codable, Identifiable {
         case thumbnailID = "thumbnail_id"
         case currencyID = "currency_id"
         case originalPrice = "original_price"
-        case salePrice = "sale_price"
         case availableQuantity = "available_quantity"
     }
 }
@@ -87,7 +85,6 @@ extension ItemModel {
         currencyID: "",
         price: 2.000,
         originalPrice: 1.000,
-        salePrice: 999,
         availableQuantity: 2,
         pictures: [.mock, .mock, .mock],
         seller: .init(id: 1, nickname: "Cristian"),
